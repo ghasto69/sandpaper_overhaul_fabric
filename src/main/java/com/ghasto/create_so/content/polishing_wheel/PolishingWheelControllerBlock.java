@@ -8,9 +8,12 @@ import com.simibubi.create.foundation.block.IBE;
 import com.simibubi.create.foundation.item.ItemHelper;
 import com.simibubi.create.foundation.utility.Iterate;
 
+import io.github.fabricators_of_create.porting_lib.block.CustomRunningEffectsBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.Entity;
@@ -34,7 +37,7 @@ import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class PolishingWheelControllerBlock extends DirectionalBlock implements IBE<PolishingWheelControllerBlockEntity> {
+public class PolishingWheelControllerBlock extends DirectionalBlock implements IBE<PolishingWheelControllerBlockEntity>, CustomRunningEffectsBlock {
 
     public PolishingWheelControllerBlock(Properties p_i48440_1_) {
         super(p_i48440_1_);
@@ -45,6 +48,11 @@ public class PolishingWheelControllerBlock extends DirectionalBlock implements I
     @Override
     public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
         return false;
+    }
+
+    @Override
+    public boolean addRunningEffects(BlockState state, Level world, BlockPos pos, Entity entity) {
+        return true;
     }
 
     @Override
@@ -77,6 +85,13 @@ public class PolishingWheelControllerBlock extends DirectionalBlock implements I
             return;
         if (be.crushingspeed == 0)
             return;
+//		if (entityIn instanceof ItemEntity)
+//			((ItemEntity) entityIn).setPickUpDelay(10);
+        CompoundTag data = entityIn.getCustomData();
+        if (data.contains("BypassCrushingWheel")) {
+            if (pos.equals(NbtUtils.readBlockPos(data.getCompound("BypassCrushingWheel"))))
+                return;
+        }
         if (be.isOccupied())
             return;
         boolean isPlayer = entityIn instanceof Player;
@@ -150,6 +165,13 @@ public class PolishingWheelControllerBlock extends DirectionalBlock implements I
         Entity entity = ((EntityCollisionContext) context).getEntity();
         if (entity == null)
             return standardShape;
+
+        CompoundTag data = entity.getCustomData();
+        if (data.contains("BypassCrushingWheel"))
+            if (pos.equals(NbtUtils.readBlockPos(data.getCompound("BypassCrushingWheel"))))
+                if (state.getValue(FACING) != Direction.UP) // Allow output items to land on top of the block rather
+                    // than falling back through.
+                    return Shapes.empty();
 
         PolishingWheelControllerBlockEntity be = getBlockEntity(worldIn, pos);
         if (be != null && be.processingEntity == entity)

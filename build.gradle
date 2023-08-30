@@ -31,7 +31,27 @@ repositories {
 	maven { url = "https://jitpack.io/" } // Mixin Extras, Fabric ASM
 	maven { url = "https://maven.tterrag.com/" } // Flywheel
 }
+loom {
+	accessWidenerPath = file("src/main/resources/create_so.accesswidener")
+	runs {
+		datagen {
+			client()
 
+			name "Minecraft Data"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}"
+			vmArg "-Dfabric-api.datagen.modid=create_so"
+			vmArg "-Dporting_lib.datagen.existing_resources=${file("src/main/resources")}"
+
+			environmentVariable("DATAGEN", "TRUE")
+		}
+	}
+}
+sourceSets.main {
+	resources {
+		srcDir("src/generated/resources")
+	}
+}
 dependencies {
 	// Setup
 	minecraft("com.mojang:minecraft:${minecraft_version}")

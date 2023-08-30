@@ -1,0 +1,8 @@
+// 1.20.1	2023-08-27T10:53:32.593462	Create: Sandpaper Overhaul/Registrate Provider for create_so [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+3ba61acf435a3f7f9fbb9fda2326f4adcfe1a706 assets/create_so/lang/en_ud.json
+8287f27329d93f852eb8c4616b0290c56f4c561b assets/create_so/models/item/polishing_wheel.json
+f064f582da2fe48dc732ea7edabd0c72a1579dcc data/minecraft/tags/blocks/mineable/pickaxe.json
+8f9ce2efc6ad352f2c8d0c037867fdc5fe76e349 assets/create_so/lang/en_us.json
+6e0ac9b9da4ee33f9cd036698d812e0d53d743d9 data/create_so/loot_tables/blocks/polishing_wheel.json
+4b0e51a1c10685f7d432467339afc9c2e24793b0 assets/create_so/blockstates/polishing_wheel_controller.json
+22866fa23344eda3baad5a317080e7112fb88ba9 assets/create_so/blockstates/polishing_wheel.json

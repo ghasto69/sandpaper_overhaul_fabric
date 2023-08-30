@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "create_so:block/polishing_wheel/block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "create_so:block/polishing_wheel/block"
+    },
+    "axis=z": {
+      "model": "create_so:block/polishing_wheel/block",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

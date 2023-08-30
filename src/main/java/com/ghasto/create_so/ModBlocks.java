@@ -19,7 +19,7 @@ import net.minecraft.world.level.material.PushReaction;
 
 public class ModBlocks {
     public static final BlockEntry<PolishingWheelBlock> POLISHING_WHEEL =
-            REGISTRATE.block("crushing_wheel", PolishingWheelBlock::new)
+            REGISTRATE.block("polishing_wheel", PolishingWheelBlock::new)
                     .properties(p -> p.mapColor(MapColor.METAL))
                     .initialProperties(SharedProperties::stone)
                     .properties(BlockBehaviour.Properties::noOcclusion)
@@ -32,7 +32,7 @@ public class ModBlocks {
                     .register();
 
     public static final BlockEntry<PolishingWheelControllerBlock> POLISHING_WHEEL_CONTROLLER =
-            REGISTRATE.block("crushing_wheel_controller", PolishingWheelControllerBlock::new)
+            REGISTRATE.block("polishing_wheel_controller", PolishingWheelControllerBlock::new)
                     .properties(p -> p.mapColor(MapColor.STONE)
                             .noOcclusion()
                             .noLootTable()

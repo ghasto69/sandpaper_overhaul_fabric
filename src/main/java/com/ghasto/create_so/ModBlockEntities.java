@@ -18,7 +18,7 @@ public class ModBlockEntities {
 
     public static final BlockEntityEntry<PolishingWheelControllerBlockEntity> POLISHING_WHEEL_CONTROLLER =
             REGISTRATE
-                    .blockEntity("crushing_wheel_controller", PolishingWheelControllerBlockEntity::new)
+                    .blockEntity("polishing_wheel_controller", PolishingWheelControllerBlockEntity::new)
                     .validBlocks(ModBlocks.POLISHING_WHEEL_CONTROLLER)
                     // .renderer(() -> renderer)
                     .register();

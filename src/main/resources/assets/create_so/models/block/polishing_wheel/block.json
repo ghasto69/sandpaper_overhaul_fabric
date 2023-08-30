@@ -1,0 +1,6 @@
+{
+	"parent": "create_so:block/polishing_wheel/textures",
+	"loader": "porting_lib:obj",
+	"flip-v": true,
+	"model": "create_so:models/block/polishing_wheel/polishing_wheel.obj"
+}
