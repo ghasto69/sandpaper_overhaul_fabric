@@ -1,4 +1,18 @@
 {
   "block.create_so.polishing_wheel": "Polishing Wheel",
-  "block.create_so.polishing_wheel_controller": "Polishing Wheel Controller"
+  "block.create_so.polishing_wheel.tooltip": "POLISHING WHEEL",
+  "block.create_so.polishing_wheel.tooltip.summary": "The _Polishing Wheel_ is a block similar to the _Crushing Wheel_ that can _Polish_ items in large amounts.",
+  "block.create_so.polishing_wheel_controller": "Polishing Wheel Controller",
+  "death.attack.create_so.sandpaper": "%1$s was brutally scrubbed to death with a sandpaper",
+  "item.create.powdered_obsidian": "Crushed Obsidian",
+  "item.create_so.crushed_diamonds": "Crushed Diamonds",
+  "item.create_so.crushed_iron": "Crushed Iron",
+  "item.create_so.diamond_sandpaper": "Crushed Diamond Sandpaper",
+  "item.create_so.iron_sandpaper": "Crushed Iron Sandpaper",
+  "item.create_so.obsidian_sandpaper": "Sturdy Obsidian Sandpaper",
+  "item.create_so.obsidian_sandpaper.tooltip": "STURDY OBSIDIAN SANDPAPER",
+  "item.create_so.obsidian_sandpaper.tooltip.behaviour1": "Applies polish to items held in the _offhand_ or lying on the _floor_ when _looking at them_",
+  "item.create_so.obsidian_sandpaper.tooltip.condition1": "When Used",
+  "item.create_so.obsidian_sandpaper.tooltip.summary": "A _very sturdy_ _sandpaper_. Can be used to _refine materials_. The process can be automated with a Deployer.",
+  "item.create_so.unrefined_lapis_lazuli": "Unrefined Lapis Lazuli"
 }

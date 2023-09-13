@@ -23,7 +23,17 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
-public enum ModRecipeTypes implements IRecipeTypeInfo {
+public enum
+
+
+
+
+
+
+
+
+
+ModRecipeTypes implements IRecipeTypeInfo {
 
 	POLISHING(PolishingRecipe::new);
 

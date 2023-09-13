@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "create:sturdy_sheet"
+    },
+    {
+      "item": "create:powdered_obsidian"
+    }
+  ],
+  "result": {
+    "item": "create_so:obsidian_sandpaper"
+  }
+}

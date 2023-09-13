@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 import com.simibubi.create.content.kinetics.belt.BeltBlockEntity;
 import com.simibubi.create.content.kinetics.belt.transport.BeltInventory;
 
-@Mixin(BeltInventory.class)
+@Mixin(value = BeltInventory.class, remap = false)
 public interface BeltInventoryAccess {
     @Accessor
     public BeltBlockEntity getBelt();

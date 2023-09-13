@@ -1,4 +1,18 @@
 {
   "block.create_so.polishing_wheel": "ןǝǝɥM buıɥsıןoԀ",
-  "block.create_so.polishing_wheel_controller": "ɹǝןןoɹʇuoƆ ןǝǝɥM buıɥsıןoԀ"
+  "block.create_so.polishing_wheel.tooltip": "ꞀƎƎHM ⅁NIHSIꞀOԀ",
+  "block.create_so.polishing_wheel.tooltip.summary": "˙sʇunoɯɐ ǝbɹɐן uı sɯǝʇı ‾ɥsıןoԀ‾ uɐɔ ʇɐɥʇ ‾ןǝǝɥM buıɥsnɹƆ‾ ǝɥʇ oʇ ɹɐןıɯıs ʞɔoןq ɐ sı ‾ןǝǝɥM buıɥsıןoԀ‾ ǝɥ⟘",
+  "block.create_so.polishing_wheel_controller": "ɹǝןןoɹʇuoƆ ןǝǝɥM buıɥsıןoԀ",
+  "death.attack.create_so.sandpaper": "ɹǝdɐdpuɐs ɐ ɥʇıʍ ɥʇɐǝp oʇ pǝqqnɹɔs ʎןןɐʇnɹq sɐʍ %1$s",
+  "item.create.powdered_obsidian": "uɐıpısqO pǝɥsnɹƆ",
+  "item.create_so.crushed_diamonds": "spuoɯɐıᗡ pǝɥsnɹƆ",
+  "item.create_so.crushed_iron": "uoɹI pǝɥsnɹƆ",
+  "item.create_so.diamond_sandpaper": "ɹǝdɐdpuɐS puoɯɐıᗡ pǝɥsnɹƆ",
+  "item.create_so.iron_sandpaper": "ɹǝdɐdpuɐS uoɹI pǝɥsnɹƆ",
+  "item.create_so.obsidian_sandpaper": "ɹǝdɐdpuɐS uɐıpısqO ʎpɹnʇS",
+  "item.create_so.obsidian_sandpaper.tooltip": "ᴚƎԀⱯԀᗡNⱯS NⱯIᗡISᗺO ʎᗡᴚ∩⟘S",
+  "item.create_so.obsidian_sandpaper.tooltip.behaviour1": "‾ɯǝɥʇ ʇɐ buıʞooן‾ uǝɥʍ ‾ɹooןɟ‾ ǝɥʇ uo buıʎן ɹo ‾puɐɥɟɟo‾ ǝɥʇ uı pןǝɥ sɯǝʇı oʇ ɥsıןod sǝıןddⱯ",
+  "item.create_so.obsidian_sandpaper.tooltip.condition1": "pǝs∩ uǝɥM",
+  "item.create_so.obsidian_sandpaper.tooltip.summary": "˙ɹǝʎoןdǝᗡ ɐ ɥʇıʍ pǝʇɐɯoʇnɐ ǝq uɐɔ ssǝɔoɹd ǝɥ⟘ ˙‾sןɐıɹǝʇɐɯ ǝuıɟǝɹ‾ oʇ pǝsn ǝq uɐƆ ˙‾ɹǝdɐdpuɐs‾ ‾ʎpɹnʇs ʎɹǝʌ‾ Ɐ",
+  "item.create_so.unrefined_lapis_lazuli": "ıןnzɐꞀ sıdɐꞀ pǝuıɟǝɹu∩"
 }

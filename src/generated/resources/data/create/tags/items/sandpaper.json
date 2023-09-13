@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "create_so:iron_sandpaper",
+    "create_so:diamond_sandpaper",
+    "create_so:obsidian_sandpaper"
+  ]
+}

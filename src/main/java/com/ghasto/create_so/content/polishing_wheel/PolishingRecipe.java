@@ -8,9 +8,11 @@ import net.minecraft.world.Container;
 import net.minecraft.world.level.Level;
 
 public class PolishingRecipe extends AbstractCrushingRecipe {
+
 	public PolishingRecipe(ProcessingRecipeBuilder.ProcessingRecipeParams params) {
 		super(ModRecipeTypes.POLISHING, params);
 	}
+
 	@Override
 	public boolean matches(Container inv, Level worldIn) {
 		if (inv.isEmpty())
@@ -21,6 +23,8 @@ public class PolishingRecipe extends AbstractCrushingRecipe {
 
 	@Override
 	protected int getMaxOutputCount() {
-		return 64;
+		return 7;
 	}
+
 }
+
