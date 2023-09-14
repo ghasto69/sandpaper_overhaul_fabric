@@ -10,7 +10,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.ghasto.create_so.ModDamageTypes;
+import com.ghasto.create_so.ModItems;
 import com.ghasto.create_so.util.SandpaperUtils;
+import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.equipment.sandPaper.SandPaperItem;
 import com.simibubi.create.foundation.item.TooltipHelper;
 
@@ -34,31 +36,44 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
-@Mixin(value = SandPaperItem.class, remap = false)
+@Mixin(value = SandPaperItem.class)
 public class SandpaperItemMixin extends Item {
 	public SandpaperItemMixin(Properties properties) {
 		super(properties);
 	}
 
 	@Inject(method = "use", at = @At("HEAD"))
-	public void use(Level worldIn, Player player, InteractionHand handIn, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir){
-	HitResult raytraceresult = this.getPlayerPOVHitResult(worldIn, player, ClipContext.Fluid.NONE);
+	public void injenctedUse(Level worldIn, Player player, InteractionHand handIn, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir){
+	HitResult raytraceresult = getPlayerPOVHitResult(worldIn, player, ClipContext.Fluid.NONE);
 	BlockHitResult ray = (BlockHitResult) raytraceresult;
 	Vec3 hitVec = ray.getLocation();
 
 	AABB bb = new AABB(hitVec, hitVec).inflate(1f);
 	List<LivingEntity> hitPlayer = worldIn.getEntitiesOfClass(LivingEntity.class, bb);
 	if(!hitPlayer.isEmpty()) {
-		hitPlayer.get(0).hurt(ModDamageTypes.SANDPAPER.source(worldIn), 1);
+		float damageDoneToEntity = 1;
+		ItemStack stack = player.getItemInHand(handIn);
+		if(stack.getItem() == ModItems.IRON_SANDPAPER.get()) {damageDoneToEntity = 2;} else if
+		(stack.getItem() == ModItems.DIAMOND_SANDPAPER.get()) {damageDoneToEntity = 3.5f;} else if
+		(stack.getItem() == ModItems.OBSIDIAN_SANDPAPER.get()) {damageDoneToEntity = 4;}
+
+		hitPlayer.get(0).hurt(ModDamageTypes.SANDPAPER.source(worldIn), damageDoneToEntity);
 	}
 	}
+
 	@Inject(method = "useOn", at = @At("HEAD"))
-	public void useOn(UseOnContext ctx, CallbackInfoReturnable<InteractionResult> cir){
+	public void injectedUseOn(UseOnContext ctx, CallbackInfoReturnable<InteractionResult> cir){
 		BlockState blockLookingAt = ctx.getLevel().getBlockState(ctx.getClickedPos());
 		Arrays.stream(SandpaperUtils.Polishable.values()).toList().forEach(polishable -> {
 			if(blockLookingAt.is(polishable.block)) {
+				ctx.getLevel().addDestroyBlockEffect(ctx.getClickedPos(), ctx.getLevel().getBlockState(ctx.getClickedPos()));
+				AllSoundEvents.SANDING_LONG.play(ctx.getLevel(), ctx.getPlayer(), ctx.getClickLocation(), 1, 1);
 				ctx.getLevel().setBlockAndUpdate(ctx.getClickedPos(), polishable.result.defaultBlockState());
-				ctx.getItemInHand().setDamageValue(ctx.getItemInHand().getDamageValue() + 1);
+				if(ctx.getItemInHand().getMaxDamage() - ctx.getItemInHand().getDamageValue() != 1) {
+					ctx.getItemInHand().setDamageValue(ctx.getItemInHand().getDamageValue() + polishable.durabilityUsed);
+				} else {
+					ctx.getPlayer().setItemInHand(ctx.getHand(), ItemStack.EMPTY);
+				}
 				ctx.getPlayer().swing(ctx.getHand());
 			}
 		});
@@ -66,6 +81,13 @@ public class SandpaperItemMixin extends Item {
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag isAdvanced) {
 	if(Screen.hasAltDown()){
+		tooltipComponents.add(Component.literal("Hold ")
+				.withStyle(ChatFormatting.DARK_GRAY)
+				.append(Component.literal("[").withStyle(ChatFormatting.DARK_GRAY)
+						.append(Component.literal("Alt").withStyle(ChatFormatting.WHITE))
+						.append(Component.literal("]").withStyle(ChatFormatting.DARK_GRAY))
+						.append(Component.literal(" for Durability").withStyle(ChatFormatting.DARK_GRAY))
+				));
 		tooltipComponents.add(Component.literal("")
 						.append("Durability: ").withStyle(TooltipHelper.Palette.STANDARD_CREATE.primary())
 				.append(Component.literal(String.valueOf(stack.getMaxDamage() - stack.getDamageValue())).withStyle(ChatFormatting.BOLD).withStyle(TooltipHelper.Palette.STANDARD_CREATE.highlight()))

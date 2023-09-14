@@ -176,8 +176,6 @@ public class PolishingWheelControllerBlockEntity extends SmartBlockEntity implem
 					continue;
 				ItemEntity entityIn = new ItemEntity(level, outPos.x, outPos.y, outPos.z, stack);
 				entityIn.setDeltaMovement(outSpeed);
-				entityIn.getCustomData()
-						.put("BypassCrushingWheel", NbtUtils.writeBlockPos(worldPosition));
 				level.addFreshEntity(entityIn);
 			}
 			inventory.clear();
@@ -367,4 +365,3 @@ public class PolishingWheelControllerBlockEntity extends SmartBlockEntity implem
 	}
 
 }
-
