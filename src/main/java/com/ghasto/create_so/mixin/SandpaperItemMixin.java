@@ -1,21 +1,11 @@
 package com.ghasto.create_so.mixin;
 
-import java.util.Arrays;
-import java.util.List;
-
-import org.jetbrains.annotations.Nullable;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
 import com.ghasto.create_so.ModDamageTypes;
 import com.ghasto.create_so.ModItems;
 import com.ghasto.create_so.util.SandpaperUtils;
 import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.equipment.sandPaper.SandPaperItem;
 import com.simibubi.create.foundation.item.TooltipHelper;
-
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -30,11 +20,23 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Mixin(value = SandPaperItem.class)
 public class SandpaperItemMixin extends Item {
@@ -66,17 +68,47 @@ public class SandpaperItemMixin extends Item {
 		BlockState blockLookingAt = ctx.getLevel().getBlockState(ctx.getClickedPos());
 		Arrays.stream(SandpaperUtils.Polishable.values()).toList().forEach(polishable -> {
 			if(blockLookingAt.is(polishable.block)) {
-				ctx.getLevel().addDestroyBlockEffect(ctx.getClickedPos(), ctx.getLevel().getBlockState(ctx.getClickedPos()));
-				AllSoundEvents.SANDING_LONG.play(ctx.getLevel(), ctx.getPlayer(), ctx.getClickLocation(), 1, 1);
-				ctx.getLevel().setBlockAndUpdate(ctx.getClickedPos(), polishable.result.defaultBlockState());
-				if(ctx.getItemInHand().getMaxDamage() - ctx.getItemInHand().getDamageValue() != 1) {
-					ctx.getItemInHand().setDamageValue(ctx.getItemInHand().getDamageValue() + polishable.durabilityUsed);
-				} else {
-					ctx.getPlayer().setItemInHand(ctx.getHand(), ItemStack.EMPTY);
-				}
-				ctx.getPlayer().swing(ctx.getHand());
+				setBlockAndUpdateDurability(ctx, polishable.result, polishable.durabilityUsed);
+			} else if(blockLookingAt.is(polishable.variantInput("slab")) && polishable.variantResult("slab") instanceof SlabBlock){
+				setBlockAndUpdateDurability(ctx, polishable.variantResult("slab"), polishable.durabilityUsed);
+			} else if(blockLookingAt.is(polishable.variantInput("stairs")) && polishable.variantResult("stairs") instanceof StairBlock){
+				setBlockAndUpdateDurability(ctx, polishable.variantResult("stairs"), polishable.durabilityUsed);
+			} else if(blockLookingAt.is(polishable.variantInput("wall")) && polishable.variantResult("wall") instanceof WallBlock){
+				setBlockAndUpdateDurability(ctx, polishable.variantResult("wall"), polishable.durabilityUsed);
 			}
 		});
+	}
+	public void setBlockAndUpdateDurability(UseOnContext ctx, Block block, int durabilityUsed) {
+		BlockState blockLookingAt = ctx.getLevel().getBlockState(ctx.getClickedPos());
+		ctx.getPlayer().swing(ctx.getHand());
+		ctx.getLevel().addDestroyBlockEffect(ctx.getClickedPos(), ctx.getLevel().getBlockState(ctx.getClickedPos()));
+		AllSoundEvents.SANDING_LONG.play(ctx.getLevel(), ctx.getPlayer(), ctx.getClickLocation(), 1, 1);
+		if(blockLookingAt.getBlock() instanceof SlabBlock) {
+			ctx.getLevel().setBlockAndUpdate(ctx.getClickedPos(), block.defaultBlockState().setValue(SlabBlock.TYPE, blockLookingAt.getValue(SlabBlock.TYPE))
+					.setValue(SlabBlock.WATERLOGGED, blockLookingAt.getValue(SlabBlock.WATERLOGGED)));
+		} else if (blockLookingAt.getBlock() instanceof StairBlock) {
+			ctx.getLevel().setBlockAndUpdate(ctx.getClickedPos(), block.defaultBlockState()
+					.setValue(StairBlock.FACING, blockLookingAt.getValue(StairBlock.FACING))
+					.setValue(StairBlock.HALF, blockLookingAt.getValue(StairBlock.HALF))
+					.setValue(StairBlock.SHAPE, blockLookingAt.getValue(StairBlock.SHAPE))
+					.setValue(StairBlock.WATERLOGGED, blockLookingAt.getValue(StairBlock.WATERLOGGED)));
+		} else if (blockLookingAt.getBlock() instanceof WallBlock) {
+			ctx.getLevel().setBlockAndUpdate(ctx.getClickedPos(), block.defaultBlockState()
+					.setValue(WallBlock.NORTH_WALL, blockLookingAt.getValue(WallBlock.NORTH_WALL))
+					.setValue(WallBlock.SOUTH_WALL, blockLookingAt.getValue(WallBlock.SOUTH_WALL))
+					.setValue(WallBlock.WEST_WALL, blockLookingAt.getValue(WallBlock.WEST_WALL))
+					.setValue(WallBlock.EAST_WALL, blockLookingAt.getValue(WallBlock.EAST_WALL))
+					.setValue(WallBlock.UP, blockLookingAt.getValue(WallBlock.UP))
+					.setValue(WallBlock.WATERLOGGED, blockLookingAt.getValue(WallBlock.WATERLOGGED)));
+
+		} else {
+			ctx.getLevel().setBlockAndUpdate(ctx.getClickedPos(), block.defaultBlockState());
+		}
+		if(ctx.getItemInHand().getMaxDamage() - ctx.getItemInHand().getDamageValue() != 1) {
+			ctx.getItemInHand().setDamageValue(ctx.getItemInHand().getDamageValue() + durabilityUsed);
+		} else {
+			ctx.getPlayer().setItemInHand(ctx.getHand(), ItemStack.EMPTY);
+		}
 	}
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag isAdvanced) {
