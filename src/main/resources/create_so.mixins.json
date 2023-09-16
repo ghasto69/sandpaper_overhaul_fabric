@@ -4,11 +4,11 @@
   "package": "com.ghasto.create_so.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "BeltCrusherInteractionHandlerMixin",
     "BeltInventoryAccess",
     "SandpaperItemMixin"
   ],
   "client": [
+    "SandpaperItemMixinClient"
   ],
   "injectors": {
     "defaultRequire": 1

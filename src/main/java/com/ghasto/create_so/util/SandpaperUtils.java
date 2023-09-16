@@ -24,6 +24,7 @@ public class SandpaperUtils {
 		POLISHED_GRANITE(Blocks.GRANITE, Blocks.POLISHED_GRANITE),
 		POLISHED_DIORITE(Blocks.DIORITE, Blocks.POLISHED_DIORITE),
 
+
 		//Create Blocks
 		POLISHED_CUT_GRANITE(stoneType(AllPaletteStoneTypes.GRANITE, 0), stoneType(AllPaletteStoneTypes.GRANITE, 1), "create"),
 		POLISHED_CUT_DIORITE(stoneType(AllPaletteStoneTypes.DIORITE, 0), stoneType(AllPaletteStoneTypes.DIORITE, 1), "create"),
