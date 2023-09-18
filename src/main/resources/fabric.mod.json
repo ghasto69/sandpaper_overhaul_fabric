@@ -17,6 +17,9 @@
     ],
     "fabric-datagen": [
       "com.ghasto.create_so.CreateSandpaperOverhaul"
+    ],
+    "emi": [
+      "com.ghasto.create_so.compat.emi.ModEMICompat"
     ]
   },
   "mixins": [

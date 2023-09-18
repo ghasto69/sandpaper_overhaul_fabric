@@ -16,6 +16,9 @@ public class ModCustomLangEntries {
 		lang("item.create_so.obsidian_sandpaper.tooltip.condition1", "When Used");
 		lang("item.create_so.obsidian_sandpaper.tooltip.behaviour1", "Applies polish to items held in the _offhand_ or lying on the _floor_ when _looking at them_");
 
+        //Emi
+        lang("emi.category.create_so.polishing", "Polishing Wheels");
+
 		//Misc
 		lang("item.create.powdered_obsidian", "Crushed Obsidian");
     }

@@ -4,6 +4,7 @@
   "block.create_so.polishing_wheel.tooltip.summary": "The _Polishing Wheel_ is a block similar to the _Crushing Wheel_ that can _Polish_ items in large amounts.",
   "block.create_so.polishing_wheel_controller": "Polishing Wheel Controller",
   "death.attack.create_so.sandpaper": "%1$s was brutally scrubbed to death with a sandpaper",
+  "emi.category.create_so.polishing": "Polishing Wheels",
   "item.create.powdered_obsidian": "Crushed Obsidian",
   "item.create_so.crushed_diamonds": "Crushed Diamonds",
   "item.create_so.crushed_iron": "Crushed Iron",

@@ -1,10 +1,10 @@
-// 1.20.1	2023-09-13T17:58:50.441746	Create: Sandpaper Overhaul/Registrate Provider for create_so [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-a76ce33ae00a27baa4eda76f326d69a50809204b assets/create_so/lang/en_ud.json
+// 1.20.1	2023-09-18T20:20:22.193453	Create: Sandpaper Overhaul/Registrate Provider for create_so [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+e6ba883012056e1b704e624d4e701edbbab0ed13 assets/create_so/lang/en_ud.json
 09b7b42ebfd951db23d40928f784e8b9ffb2bcfa data/create_so/advancements/recipes/tools/iron_sandpaper.json
 5fa8e37f2719558a26122cd719a8569f95f760b8 assets/create_so/models/item/unrefined_lapis_lazuli.json
 6183056b14f9697590050c3fdc9838f6fe53edab data/create_so/advancements/recipes/tools/obsidian_sandpaper.json
 f71c982c977c60dff1cb08121771916c65ecafc4 data/create_so/recipes/diamond_sandpaper.json
-7f6d4ac0158bf800d2e475f0f31a866c0fa9a5d4 assets/create_so/lang/en_us.json
+5c24317d7718425982a7f198403295eca793e619 assets/create_so/lang/en_us.json
 004a6c2036ca80aa4361135b506081b19b0d1b99 data/create/tags/items/sandpaper.json
 6e0ac9b9da4ee33f9cd036698d812e0d53d743d9 data/create_so/loot_tables/blocks/polishing_wheel.json
 6e8fdee69adadc74221e1c65308fd32467b7a471 data/create_so/advancements/recipes/tools/diamond_sandpaper.json
@@ -17,5 +17,5 @@ f064f582da2fe48dc732ea7edabd0c72a1579dcc data/minecraft/tags/blocks/mineable/pic
 4b0e51a1c10685f7d432467339afc9c2e24793b0 assets/create_so/blockstates/polishing_wheel_controller.json
 22866fa23344eda3baad5a317080e7112fb88ba9 assets/create_so/blockstates/polishing_wheel.json
 777f0bef0990a81f8662e071fb40478ef9ac098f assets/create_so/models/item/crushed_iron.json
-b69fee687ce4c8ef34426bee57f9ff5b6a3dd6e3 assets/create_so/models/item/diamond_sandpaper.json
 1de3f1f90c293f68de1ffd59e4489073ccba053e assets/create_so/models/item/crushed_diamonds.json
+b69fee687ce4c8ef34426bee57f9ff5b6a3dd6e3 assets/create_so/models/item/diamond_sandpaper.json
