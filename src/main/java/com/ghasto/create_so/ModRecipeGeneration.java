@@ -1,6 +1,7 @@
 package com.ghasto.create_so;
 
 import com.ghasto.create_so.content.polishing_wheel.PolishingRecipe;
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.content.fluids.transfer.FillingRecipe;
@@ -9,8 +10,8 @@ import com.simibubi.create.content.kinetics.deployer.DeployerApplicationRecipe;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyRecipeBuilder;
+import com.simibubi.create.foundation.data.recipe.MechanicalCraftingRecipeBuilder;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
-
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
@@ -65,6 +66,18 @@ public class ModRecipeGeneration {
 				.addOutput(Items.INK_SAC, 1)
 				.addStep(FillingRecipe::new, rb -> rb.require(Fluids.WATER, FluidConstants.fromBucketFraction(1, 10)))
 				.addStep(DeployerApplicationRecipe::new, rb -> rb.require(ItemTags.COALS).toolNotConsumed())
+				.build(p);
+		new MechanicalCraftingRecipeBuilder(ModBlocks.POLISHING_WHEEL.get(), 2)
+				.key('P', Items.OBSIDIAN)
+				.key('S', AllBlocks.BRASS_BLOCK.get())
+				.key('A', AllItems.STURDY_SHEET.get())
+				.key('D', AllItems.BRASS_INGOT.get())
+				.patternLine(" AAA ")
+				.patternLine("ADPDA")
+				.patternLine("APSPA")
+				.patternLine("ADPDA")
+				.patternLine(" AAA ")
+				.disallowMirrored()
 				.build(p);
 	}
 	public static ProcessingRecipeBuilder<CrushingRecipe> getCrushingBuilder(String id) {

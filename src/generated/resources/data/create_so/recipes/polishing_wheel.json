@@ -1,0 +1,29 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "A": {
+      "item": "create:sturdy_sheet"
+    },
+    "D": {
+      "item": "create:brass_ingot"
+    },
+    "P": {
+      "item": "minecraft:obsidian"
+    },
+    "S": {
+      "item": "create:brass_block"
+    }
+  },
+  "pattern": [
+    " AAA ",
+    "ADPDA",
+    "APSPA",
+    "ADPDA",
+    " AAA "
+  ],
+  "result": {
+    "count": 2,
+    "item": "create_so:polishing_wheel"
+  }
+}
