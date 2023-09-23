@@ -6,6 +6,12 @@
   "death.attack.create_so.sandpaper": "ɹǝdɐdpuɐs ɐ ɥʇıʍ ɥʇɐǝp oʇ pǝqqnɹɔs ʎןןɐʇnɹq sɐʍ %1$s",
   "emi.category.create_so.polishing": "sןǝǝɥM buıɥsıןoԀ",
   "item.create.powdered_obsidian": "uɐıpısqO pǝɥsnɹƆ",
+  "item.create.sand_paper.tooltip": "ᴚƎԀⱯԀ ᗡNⱯS",
+  "item.create.sand_paper.tooltip.behaviour1": "‾ɯǝɥʇ ʇɐ buıʞooן‾ uǝɥʍ ‾ɹooןɟ‾ ǝɥʇ uo buıʎן ɹo ‾puɐɥɟɟo‾ ǝɥʇ uı pןǝɥ sɯǝʇı sǝɥsıןoԀ",
+  "item.create.sand_paper.tooltip.behaviour2": "‾ʇɐ buıʞooן ǝɹɐ noʎ ʞɔoןq‾ ǝɥʇ sǝɥsıןod ʎןʇɔǝɹıᗡ",
+  "item.create.sand_paper.tooltip.condition1": "ɯǝʇı uɐ uo pǝsn uǝɥM",
+  "item.create.sand_paper.tooltip.condition2": "ʞɔoןq ɐ uo pǝsn uǝɥM",
+  "item.create.sand_paper.tooltip.summary": "˙ɹǝʎoןdǝᗡ ɐ ɥʇıʍ pǝʇɐɯoʇnɐ ǝq uɐɔ ssǝɔoɹd ǝɥ⟘ ˙‾sʞɔoןq ɥsıןod‾ puɐ ‾sןɐıɹǝʇɐɯ ǝuıɟǝɹ‾ oʇ pǝsn ǝq uɐƆ",
   "item.create_so.crushed_diamonds": "spuoɯɐıᗡ pǝɥsnɹƆ",
   "item.create_so.crushed_iron": "uoɹI pǝɥsnɹƆ",
   "item.create_so.diamond_sandpaper": "ɹǝdɐdpuɐS puoɯɐıᗡ pǝɥsnɹƆ",
@@ -13,7 +19,12 @@
   "item.create_so.obsidian_sandpaper": "ɹǝdɐdpuɐS uɐıpısqO ʎpɹnʇS",
   "item.create_so.obsidian_sandpaper.tooltip": "ᴚƎԀⱯԀᗡNⱯS NⱯIᗡISᗺO ʎᗡᴚ∩⟘S",
   "item.create_so.obsidian_sandpaper.tooltip.behaviour1": "‾ɯǝɥʇ ʇɐ buıʞooן‾ uǝɥʍ ‾ɹooןɟ‾ ǝɥʇ uo buıʎן ɹo ‾puɐɥɟɟo‾ ǝɥʇ uı pןǝɥ sɯǝʇı oʇ ɥsıןod sǝıןddⱯ",
-  "item.create_so.obsidian_sandpaper.tooltip.condition1": "pǝs∩ uǝɥM",
-  "item.create_so.obsidian_sandpaper.tooltip.summary": "˙ɹǝʎoןdǝᗡ ɐ ɥʇıʍ pǝʇɐɯoʇnɐ ǝq uɐɔ ssǝɔoɹd ǝɥ⟘ ˙‾sןɐıɹǝʇɐɯ ǝuıɟǝɹ‾ oʇ pǝsn ǝq uɐƆ ˙‾ɹǝdɐdpuɐs‾ ‾ʎpɹnʇs ʎɹǝʌ‾ Ɐ",
-  "item.create_so.unrefined_lapis_lazuli": "ıןnzɐꞀ sıdɐꞀ pǝuıɟǝɹu∩"
+  "item.create_so.obsidian_sandpaper.tooltip.behaviour2": "‾ʇɐ buıʞooן ǝɹɐ noʎ ʞɔoןq‾ ǝɥʇ sǝɥsıןod ʎןʇɔǝɹıᗡ",
+  "item.create_so.obsidian_sandpaper.tooltip.condition1": "ɯǝʇı uɐ uo pǝsn uǝɥM",
+  "item.create_so.obsidian_sandpaper.tooltip.condition2": "ʞɔoןq ɐ uo pǝsn uǝɥM",
+  "item.create_so.obsidian_sandpaper.tooltip.summary": "˙ɹǝʎoןdǝᗡ ɐ ɥʇıʍ pǝʇɐɯoʇnɐ ǝq uɐɔ ssǝɔoɹd ǝɥ⟘ ˙‾sʞɔoןq ɥsıןod‾ ɹo ‾sןɐıɹǝʇɐɯ ǝuıɟǝɹ‾ oʇ pǝsn ǝq uɐƆ ˙‾ɹǝdɐdpuɐs‾ ‾ʎpɹnʇs ʎɹǝʌ‾ Ɐ",
+  "item.create_so.unfinished_rose_quartz": "zʇɹɐnὉ ǝsoᴚ pǝɥsıuıɟu∩",
+  "item.create_so.unfinished_unrefined_lapis_lazuli": "ıןnzɐꞀ sıdɐꞀ pǝuıɟǝɹu∩ pǝɥsıuıɟu∩",
+  "item.create_so.unrefined_lapis_lazuli": "ıןnzɐꞀ sıdɐꞀ pǝuıɟǝɹu∩",
+  "rei.category.create_so.polishing": "sןǝǝɥM buıɥsıןoԀ"
 }

@@ -1,0 +1,18 @@
+{
+  "type": "create_so:polishing",
+  "ingredients": [
+    {
+      "item": "create_so:unrefined_lapis_lazuli"
+    }
+  ],
+  "processingTime": 200,
+  "results": [
+    {
+      "item": "minecraft:lapis_lazuli"
+    },
+    {
+      "chance": 0.5,
+      "item": "minecraft:lapis_lazuli"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:quartz"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "create_so:unrefined_lapis_lazuli"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create_so:unfinished_unrefined_lapis_lazuli"
+        },
+        {
+          "amount": 20250,
+          "fluid": "minecraft:lava",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "create_so:unfinished_unrefined_lapis_lazuli"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create_so:unfinished_unrefined_lapis_lazuli"
+        },
+        {
+          "amount": 20250,
+          "fluid": "minecraft:water",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "create_so:unfinished_unrefined_lapis_lazuli"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_so:unfinished_unrefined_lapis_lazuli"
+        },
+        {
+          "item": "minecraft:blue_dye"
+        }
+      ],
+      "keepHeldItem": true,
+      "results": [
+        {
+          "item": "create_so:unfinished_unrefined_lapis_lazuli"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "create_so:unfinished_unrefined_lapis_lazuli"
+  }
+}

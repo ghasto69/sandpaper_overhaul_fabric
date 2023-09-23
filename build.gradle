@@ -20,8 +20,13 @@ String buildNumber = System.getenv("GITHUB_RUN_NUMBER")
 version = "${mod_version}+${minecraft_version}" + (buildNumber != null ? "-${buildNumber}" : "")
 
 repositories {
-	maven { url = "https://maven.shedaniel.me/" } // Cloth Config, REI
-	maven { url = "https://maven.parchmentmc.org" } // Parchment mappings
+	maven {
+		url = "https://maven.shedaniel.me/"
+	} // Cloth Config, REI
+	maven { url = "https://maven.parchmentmc.org"
+		content {
+			includeGroup "org.parchmentmc.data"
+		}} // Parchment mappings
 	maven { url = "https://maven.quiltmc.org/repository/release" } // Quilt Mappings
 	maven { url = "https://api.modrinth.com/maven" } // LazyDFU
 	maven { url = "https://maven.terraformersmc.com/releases/" } // Mod Menu
@@ -76,7 +81,9 @@ dependencies {
 	// See root gradle.properties to choose which to use at runtime.
 	switch (recipe_viewer.toLowerCase(Locale.ROOT)) {
 		case "jei": modLocalRuntime("mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"); break
-		case "rei": modLocalRuntime("me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"); break
+		case "rei": modLocalRuntime("maven.modrinth:rei:${rei_version}");
+			modLocalRuntime("maven.modrinth:architectury-api:${arch_version}");
+			break
 		case "emi": modLocalRuntime("maven.modrinth:emi:${emi_version}"); break
 		case "disabled": break
 		default: println("Unknown recipe viewer specified: ${recipe_viewer}. Must be JEI, REI, EMI, or disabled.")
@@ -84,8 +91,9 @@ dependencies {
 	// if you would like to add integration with them, uncomment them here.
 //    modCompileOnly("mezz.jei:jei-${minecraft_version}-fabric:${jei_fabric_version}")
 //    modCompileOnly("mezz.jei:jei-${minecraft_version}-common:${jei_fabric_version}")
-//    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}")
-//    modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}")
+	modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_plugin_version}")
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_plugin_version}")
+	modCompileOnly("maven.modrinth:architectury-api:${arch_version}")
     modCompileOnly("maven.modrinth:emi:${emi_version}")
 }
 

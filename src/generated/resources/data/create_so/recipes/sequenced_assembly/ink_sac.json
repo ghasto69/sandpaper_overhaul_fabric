@@ -1,0 +1,52 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:paper"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "minecraft:ink_sac"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:paper"
+        },
+        {
+          "amount": 8100,
+          "fluid": "minecraft:water",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:paper"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:paper"
+        },
+        {
+          "tag": "minecraft:coals"
+        }
+      ],
+      "keepHeldItem": true,
+      "results": [
+        {
+          "item": "minecraft:paper"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "minecraft:paper"
+  }
+}

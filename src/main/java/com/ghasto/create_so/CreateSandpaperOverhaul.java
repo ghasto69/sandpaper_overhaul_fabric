@@ -43,7 +43,9 @@ public class CreateSandpaperOverhaul implements ModInitializer, DataGeneratorEnt
 				.icon(ModItems.DIAMOND_SANDPAPER::asStack)
 				.displayItems((c,p) -> {
 					REGISTRATE.getAll(Registries.ITEM).forEach(e -> {
-						p.accept(e.get());
+						if(e != ModItems.UNFINISHED_UNREFINED_LAPIS_LAZULI && e != ModItems.UNFINISHED_ROSE_QUARTZ) {
+							p.accept(e.get());
+						}
 					});
 				})
 				.build());

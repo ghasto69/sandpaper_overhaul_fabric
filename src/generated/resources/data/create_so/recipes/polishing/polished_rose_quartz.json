@@ -5,14 +5,14 @@
       "item": "create:rose_quartz"
     }
   ],
+  "processingTime": 200,
   "results": [
     {
       "item": "create:polished_rose_quartz"
     },
     {
-      "item": "create:polished_rose_quartz",
-      "chance": 0.5
+      "chance": 0.5,
+      "item": "create:polished_rose_quartz"
     }
-  ],
-  "processingTime": 100
+  ]
 }

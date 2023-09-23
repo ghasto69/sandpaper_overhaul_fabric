@@ -1,0 +1,70 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:quartz"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "create:rose_quartz"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create_so:unfinished_rose_quartz"
+        },
+        {
+          "amount": 20250,
+          "fluid": "minecraft:water",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "create_so:unfinished_rose_quartz"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create_so:unfinished_rose_quartz"
+        },
+        {
+          "amount": 20250,
+          "fluid": "minecraft:lava",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "create_so:unfinished_rose_quartz"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_so:unfinished_rose_quartz"
+        },
+        {
+          "item": "minecraft:red_dye"
+        }
+      ],
+      "keepHeldItem": true,
+      "results": [
+        {
+          "item": "create_so:unfinished_rose_quartz"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "create_so:unfinished_rose_quartz"
+  }
+}

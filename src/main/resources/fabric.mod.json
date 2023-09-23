@@ -20,6 +20,9 @@
     ],
     "emi": [
       "com.ghasto.create_so.compat.emi.ModEMICompat"
+    ],
+    "rei_client": [
+      "com.ghasto.create_so.compat.rei.ModReiCompat"
     ]
   },
   "mixins": [

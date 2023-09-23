@@ -12,12 +12,23 @@ public class ModCustomLangEntries {
         lang("block.create_so.polishing_wheel.tooltip.summary", "The _Polishing Wheel_ is a block similar to the _Crushing Wheel_ that can _Polish_ items in large amounts.");
 
 		lang("item.create_so.obsidian_sandpaper.tooltip", "STURDY OBSIDIAN SANDPAPER");
-		lang("item.create_so.obsidian_sandpaper.tooltip.summary", "A _very sturdy_ _sandpaper_. Can be used to _refine materials_. The process can be automated with a Deployer.");
-		lang("item.create_so.obsidian_sandpaper.tooltip.condition1", "When Used");
+		lang("item.create_so.obsidian_sandpaper.tooltip.summary", "A _very sturdy_ _sandpaper_. Can be used to _refine materials_ or _polish blocks_. The process can be automated with a Deployer.");
+		lang("item.create_so.obsidian_sandpaper.tooltip.condition1", "When used on an item");
 		lang("item.create_so.obsidian_sandpaper.tooltip.behaviour1", "Applies polish to items held in the _offhand_ or lying on the _floor_ when _looking at them_");
+		lang("item.create_so.obsidian_sandpaper.tooltip.condition2", "When used on a block");
+		lang("item.create_so.obsidian_sandpaper.tooltip.behaviour2","Directly polishes the _block you are looking at_");
+
+		lang("item.create.sand_paper.tooltip", "SAND PAPER");
+		lang("item.create.sand_paper.tooltip.summary", "Can be used to _refine materials_ and _polish blocks_. The process can be automated with a Deployer.");
+		lang("item.create.sand_paper.tooltip.condition1", "When used on an item");
+		lang("item.create.sand_paper.tooltip.behaviour1", "Polishes items held in the _offhand_ or lying on the _floor_ when _looking at them_");
+		lang("item.create.sand_paper.tooltip.condition2", "When used on a block");
+		lang("item.create.sand_paper.tooltip.behaviour2","Directly polishes the _block you are looking at_");
 
         //Emi
         lang("emi.category.create_so.polishing", "Polishing Wheels");
+		//Rei
+		lang("rei.category.create_so.polishing", "Polishing Wheels");
 
 		//Misc
 		lang("item.create.powdered_obsidian", "Crushed Obsidian");
