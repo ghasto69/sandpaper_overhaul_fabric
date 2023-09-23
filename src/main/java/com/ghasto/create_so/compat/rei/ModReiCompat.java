@@ -48,7 +48,7 @@ public class ModReiCompat implements REIClientPlugin {
 		CreateRecipeCategory<?>
 				polishing = builder(PolishingRecipe.class)
 						.addTypedRecipes(ModRecipeTypes.POLISHING)
-						.catalyst(ModBlocks.POLISHING_WHEEL::asItem)
+						.catalyst(() -> ModBlocks.POLISHING_WHEEL.get().asItem())
 						.doubleItemIcon(ModBlocks.POLISHING_WHEEL.get(), AllItems.SAND_PAPER.get())
 						.emptyBackground(177, 106)
 						.build("polishing", PolishingCategory::new);

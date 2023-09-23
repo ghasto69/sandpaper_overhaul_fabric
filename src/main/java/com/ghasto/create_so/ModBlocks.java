@@ -14,13 +14,12 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.material.MaterialColor;
 
 public class ModBlocks {
     public static final BlockEntry<PolishingWheelBlock> POLISHING_WHEEL =
             REGISTRATE.block("polishing_wheel", PolishingWheelBlock::new)
-                    .properties(p -> p.mapColor(MapColor.METAL))
+                    .properties(p -> p.color(MaterialColor.METAL))
                     .initialProperties(SharedProperties::stone)
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
@@ -33,12 +32,11 @@ public class ModBlocks {
 
     public static final BlockEntry<PolishingWheelControllerBlock> POLISHING_WHEEL_CONTROLLER =
             REGISTRATE.block("polishing_wheel_controller", PolishingWheelControllerBlock::new)
-                    .properties(p -> p.mapColor(MapColor.STONE)
+                    .properties(p -> p.color(MaterialColor.STONE)
                             .noOcclusion()
                             .noLootTable()
                             .air()
-                            .noCollission()
-                            .pushReaction(PushReaction.BLOCK))
+                            .noCollission())
                     .blockstate((c, p) -> p.getVariantBuilder(c.get())
                             .forAllStatesExcept(BlockStateGen.mapToAir(p), PolishingWheelControllerBlock.FACING))
                     .register();

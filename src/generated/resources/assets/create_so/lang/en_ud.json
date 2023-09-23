@@ -3,6 +3,7 @@
   "block.create_so.polishing_wheel.tooltip": "ꞀƎƎHM ⅁NIHSIꞀOԀ",
   "block.create_so.polishing_wheel.tooltip.summary": "˙sʇunoɯɐ ǝbɹɐן uı sɯǝʇı ‾ɥsıןoԀ‾ uɐɔ ʇɐɥʇ ‾ןǝǝɥM buıɥsnɹƆ‾ ǝɥʇ oʇ ɹɐןıɯıs ʞɔoןq ɐ sı ‾ןǝǝɥM buıɥsıןoԀ‾ ǝɥ⟘",
   "block.create_so.polishing_wheel_controller": "ɹǝןןoɹʇuoƆ ןǝǝɥM buıɥsıןoԀ",
+  "death.attack.create_so.polish": "ןןǝʍ puǝ ʇ,upıp ʇı 'sןǝǝɥʍ buıɥsıןod ɟo ɹıɐd ɐ oʇuı pǝʞןɐʍ ʎןsnoıɹnɔ %1$s",
   "death.attack.create_so.sandpaper": "ɹǝdɐdpuɐs ɐ ɥʇıʍ ɥʇɐǝp oʇ pǝqqnɹɔs ʎןןɐʇnɹq sɐʍ %1$s",
   "emi.category.create_so.polishing": "sןǝǝɥM buıɥsıןoԀ",
   "item.create.powdered_obsidian": "uɐıpısqO pǝɥsnɹƆ",
@@ -26,5 +27,6 @@
   "item.create_so.unfinished_rose_quartz": "zʇɹɐnὉ ǝsoᴚ pǝɥsıuıɟu∩",
   "item.create_so.unfinished_unrefined_lapis_lazuli": "ıןnzɐꞀ sıdɐꞀ pǝuıɟǝɹu∩ pǝɥsıuıɟu∩",
   "item.create_so.unrefined_lapis_lazuli": "ıןnzɐꞀ sıdɐꞀ pǝuıɟǝɹu∩",
+  "itemGroup.create_so.tab": "ןnɐɥɹǝʌO ɹǝdɐdpuɐS :ǝʇɐǝɹƆ",
   "rei.category.create_so.polishing": "sןǝǝɥM buıɥsıןoԀ"
 }

@@ -1,10 +1,19 @@
 package com.ghasto.create_so.mixin;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
 import com.ghasto.create_so.ModDamageTypes;
 import com.ghasto.create_so.ModItems;
 import com.ghasto.create_so.util.SandpaperUtils;
 import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.equipment.sandPaper.SandPaperItem;
+
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -24,13 +33,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Arrays;
-import java.util.List;
 
 @Mixin(value = SandPaperItem.class)
 public class SandpaperItemMixin extends Item {
@@ -60,7 +62,8 @@ public class SandpaperItemMixin extends Item {
 					damageDoneToEntity = 4;
 				}
 
-				hitPlayer.get(0).hurt(ModDamageTypes.SANDPAPER.source(worldIn), damageDoneToEntity);
+				//hitPlayer.get(0).hurt(ModDamageTypes.SANDPAPER.source(worldIn), damageDoneToEntity);
+				hitPlayer.get(0).hurt(ModDamageTypes.SANDPAPER, damageDoneToEntity);
 			}
 		}
 	}

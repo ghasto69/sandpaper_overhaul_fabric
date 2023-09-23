@@ -1,7 +1,8 @@
 package com.ghasto.create_so.util;
 
 import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
-import net.minecraft.core.registries.BuiltInRegistries;
+
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -77,12 +78,12 @@ public class SandpaperUtils {
 		}
 		public Block variantResult(String variantID) {
 			String blockid = String.valueOf(this.result).substring(7 + id.length()).replace("}", "").replace("_" + variantID, "");
-			return BuiltInRegistries.BLOCK.get(
+			return Registry.BLOCK.get(
 					new ResourceLocation(this.id, blockid + "_" + variantID));
 		}
 		public Block variantInput(String variantID) {
 			String blockid = String.valueOf(this.block).substring(7 + id.length()).replace("}", "").replace("_" + variantID, "");
-			return BuiltInRegistries.BLOCK.get(
+			return Registry.BLOCK.get(
 					new ResourceLocation(this.id, blockid + "_" + variantID));
 		}
 	}

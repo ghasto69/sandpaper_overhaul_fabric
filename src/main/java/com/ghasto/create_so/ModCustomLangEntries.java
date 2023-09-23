@@ -6,6 +6,7 @@ public class ModCustomLangEntries {
     static {
         //Death Messages
         lang("death.attack.create_so.sandpaper", "%1$s was brutally scrubbed to death with a sandpaper");
+		lang("death.attack.create_so.polish", "%1$s curiously walked into a pair of polishing wheels, it didn't end well");
 
         //Tooltips
         lang("block.create_so.polishing_wheel.tooltip", "POLISHING WHEEL");
@@ -32,6 +33,7 @@ public class ModCustomLangEntries {
 
 		//Misc
 		lang("item.create.powdered_obsidian", "Crushed Obsidian");
+		lang("itemGroup.create_so.tab", "Create: Sandpaper Overhaul");
     }
     public static void lang(String key, String translation) {
         REGISTRATE.addRawLang(key, translation);

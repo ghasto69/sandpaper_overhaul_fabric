@@ -30,6 +30,5 @@
     "recipes": [
       "create_so:iron_sandpaper"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -3,6 +3,7 @@
   "block.create_so.polishing_wheel.tooltip": "POLISHING WHEEL",
   "block.create_so.polishing_wheel.tooltip.summary": "The _Polishing Wheel_ is a block similar to the _Crushing Wheel_ that can _Polish_ items in large amounts.",
   "block.create_so.polishing_wheel_controller": "Polishing Wheel Controller",
+  "death.attack.create_so.polish": "%1$s curiously walked into a pair of polishing wheels, it didn't end well",
   "death.attack.create_so.sandpaper": "%1$s was brutally scrubbed to death with a sandpaper",
   "emi.category.create_so.polishing": "Polishing Wheels",
   "item.create.powdered_obsidian": "Crushed Obsidian",
@@ -26,5 +27,6 @@
   "item.create_so.unfinished_rose_quartz": "Unfinished Rose Quartz",
   "item.create_so.unfinished_unrefined_lapis_lazuli": "Unfinished Unrefined Lapis Lazuli",
   "item.create_so.unrefined_lapis_lazuli": "Unrefined Lapis Lazuli",
+  "itemGroup.create_so.tab": "Create: Sandpaper Overhaul",
   "rei.category.create_so.polishing": "Polishing Wheels"
 }

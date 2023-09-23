@@ -3,7 +3,7 @@ package com.ghasto.create_so.content.polishing_wheel;
 import java.util.Collection;
 import java.util.List;
 
-import com.simibubi.create.AllDamageTypes;
+import com.ghasto.create_so.ModDamageTypes;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.utility.Iterate;
@@ -53,13 +53,13 @@ public class PolishingWheelBlockEntity extends KineticBlockEntity {
     }
 
     public static int crushingIsFortunate(DamageSource source, LivingEntity target, int currentLevel, boolean recentlyHit) {
-        if (!AllDamageTypes.CRUSH.is(source))
+        if (source != ModDamageTypes.POLISH)
             return 0;
         return 2;
     }
 
     public static boolean handleCrushedMobDrops(LivingEntity target, DamageSource source, Collection<ItemEntity> drops, int lootingLevel, boolean recentlyHit) {
-        if (!AllDamageTypes.CRUSH.is(source))
+        if (source !=ModDamageTypes.POLISH)
             return false;
         Vec3 outSpeed = Vec3.ZERO;
         for (ItemEntity outputItem : drops) {

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sturdy_sheet": {
+    "has_iron_sheet": {
       "conditions": {
         "items": [
           {
             "items": [
-              "create:sturdy_sheet"
+              "create:iron_sheet"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "create_so:obsidian_sandpaper"
+        "recipe": "create_so:diamond_sandpaper"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_sturdy_sheet",
+      "has_iron_sheet",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "create_so:obsidian_sandpaper"
+      "create_so:diamond_sandpaper"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

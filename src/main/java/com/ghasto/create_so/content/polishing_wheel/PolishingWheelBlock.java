@@ -1,11 +1,14 @@
 package com.ghasto.create_so.content.polishing_wheel;
 
+import static com.simibubi.create.content.kinetics.crusher.CrushingWheelControllerBlock.VALID;
+
 import com.ghasto.create_so.ModBlockEntities;
 import com.ghasto.create_so.ModBlocks;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.kinetics.base.RotatedPillarKineticBlock;
 import com.simibubi.create.foundation.block.IBE;
 import com.simibubi.create.foundation.utility.Iterate;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
@@ -19,8 +22,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import static com.simibubi.create.content.kinetics.crusher.CrushingWheelControllerBlock.VALID;
 
 public class PolishingWheelBlock extends RotatedPillarKineticBlock implements IBE<PolishingWheelBlockEntity>{
 
@@ -106,10 +107,11 @@ public class PolishingWheelBlock extends RotatedPillarKineticBlock implements IB
                 return;
             }
 
-            if (!controllerExists) {
-                if (!world.getBlockState(controllerPos)
-                        .canBeReplaced())
-                    return;
+			if (!controllerExists) {
+				if (!world.getBlockState(controllerPos)
+						.getMaterial()
+						.isReplaceable())
+					return;
                 world.setBlockAndUpdate(controllerPos, ModBlocks.POLISHING_WHEEL_CONTROLLER.getDefaultState()
                         .setValue(VALID, controllerShouldBeValid)
                         .setValue(PolishingWheelControllerBlock.FACING, controllerNewDirection));
@@ -126,7 +128,7 @@ public class PolishingWheelBlock extends RotatedPillarKineticBlock implements IB
 
         @Override
         public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
-            if (entityIn.getY() < pos.getY() + 1.25f || !entityIn.onGround())
+            if (entityIn.getY() < pos.getY() + 1.25f || !entityIn.isOnGround())
                 return;
 
             float speed = getBlockEntityOptional(worldIn, pos).map(PolishingWheelBlockEntity::getSpeed)

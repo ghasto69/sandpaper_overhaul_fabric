@@ -1,21 +1,17 @@
 package com.ghasto.create_so;
 
 import java.util.Optional;
-import java.util.Set;
 import java.util.function.Supplier;
 
 import org.jetbrains.annotations.Nullable;
 
 import com.ghasto.create_so.content.polishing_wheel.PolishingRecipe;
-import com.google.common.collect.ImmutableSet;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
 import com.simibubi.create.foundation.utility.Lang;
-import com.simibubi.create.foundation.utility.RegisteredObjects;
 
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.crafting.Recipe;
@@ -36,10 +32,10 @@ public enum ModRecipeTypes implements IRecipeTypeInfo {
 	ModRecipeTypes(Supplier<RecipeSerializer<?>> serializerSupplier, Supplier<RecipeType<?>> typeSupplier, boolean registerType) {
 		String name = Lang.asId(name());
 		id = CreateSandpaperOverhaul.id(name);
-		serializerObject = Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, id, serializerSupplier.get());
+		serializerObject = Registry.register(Registry.RECIPE_SERIALIZER, id, serializerSupplier.get());
 		if (registerType) {
 			typeObject = typeSupplier.get();
-			Registry.register(BuiltInRegistries.RECIPE_TYPE, id, typeObject);
+			Registry.register(Registry.RECIPE_TYPE, id, typeObject);
 			type = typeSupplier;
 		} else {
 			typeObject = null;
@@ -50,9 +46,9 @@ public enum ModRecipeTypes implements IRecipeTypeInfo {
 	ModRecipeTypes(Supplier<RecipeSerializer<?>> serializerSupplier) {
 		String name = Lang.asId(name());
 		id = CreateSandpaperOverhaul.id(name);
-		serializerObject = Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, id, serializerSupplier.get());
+		serializerObject = Registry.register(Registry.RECIPE_SERIALIZER, id, serializerSupplier.get());
 		typeObject = simpleType(id);
-		Registry.register(BuiltInRegistries.RECIPE_TYPE, id, typeObject);
+		Registry.register(Registry.RECIPE_TYPE, id, typeObject);
 		type = () -> typeObject;
 	}
 
@@ -93,17 +89,5 @@ public enum ModRecipeTypes implements IRecipeTypeInfo {
 	public <C extends Container, T extends Recipe<C>> Optional<T> find(C inv, Level world) {
 		return world.getRecipeManager()
 				.getRecipeFor(getType(), inv, world);
-	}
-
-	public static final Set<ResourceLocation> RECIPE_DENY_SET =
-			ImmutableSet.of(new ResourceLocation("occultism", "spirit_trade"), new ResourceLocation("occultism", "ritual"));
-
-	public static boolean shouldIgnoreInAutomation(Recipe<?> recipe) {
-		RecipeSerializer<?> serializer = recipe.getSerializer();
-		if (serializer != null && RECIPE_DENY_SET.contains(RegisteredObjects.getKeyOrThrow(serializer)))
-			return true;
-		return recipe.getId()
-				.getPath()
-				.endsWith("_manual_only");
 	}
 }

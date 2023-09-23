@@ -12,7 +12,6 @@ import com.simibubi.create.content.processing.sequenced.SequencedAssemblyRecipeB
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
-import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
@@ -20,39 +19,39 @@ import net.minecraft.world.level.material.Fluids;
 
 public class ModRecipeGeneration {
 	public static void generateAll(RegistrateRecipeProvider p) {
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.IRON_SANDPAPER)
-				.requires(AllItems.IRON_SHEET)
-				.requires(ModItems.CRUSHED_IRON)
-				.unlockedBy("has_iron_sheet", RegistrateRecipeProvider.has(AllItems.IRON_SHEET))
+		ShapelessRecipeBuilder.shapeless(ModItems.IRON_SANDPAPER.get())
+				.requires(AllItems.IRON_SHEET.get())
+				.requires(ModItems.CRUSHED_IRON.get())
+				.unlockedBy("has_iron_sheet", RegistrateRecipeProvider.has(AllItems.IRON_SHEET.get()))
 				.save(p);
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.DIAMOND_SANDPAPER)
-				.requires(AllItems.IRON_SHEET)
-				.requires(ModItems.CRUSHED_DIAMONDS)
-				.unlockedBy("has_iron_sheet", RegistrateRecipeProvider.has(AllItems.IRON_SHEET))
+		ShapelessRecipeBuilder.shapeless(ModItems.DIAMOND_SANDPAPER.get())
+				.requires(AllItems.IRON_SHEET.get())
+				.requires(ModItems.CRUSHED_DIAMONDS.get())
+				.unlockedBy("has_iron_sheet", RegistrateRecipeProvider.has(AllItems.IRON_SHEET.get()))
 				.save(p);
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.OBSIDIAN_SANDPAPER)
-				.requires(AllItems.STURDY_SHEET)
-				.requires(AllItems.POWDERED_OBSIDIAN)
-				.unlockedBy("has_sturdy_sheet", RegistrateRecipeProvider.has(AllItems.STURDY_SHEET))
+		ShapelessRecipeBuilder.shapeless(ModItems.OBSIDIAN_SANDPAPER.get())
+				.requires(AllItems.STURDY_SHEET.get())
+				.requires(AllItems.POWDERED_OBSIDIAN.get())
+				.unlockedBy("has_sturdy_sheet", RegistrateRecipeProvider.has(AllItems.STURDY_SHEET.get()))
 				.save(p);
-		getCrushingBuilder("crushed_iron").require(Items.IRON_INGOT).output(ModItems.CRUSHED_IRON).duration(100).build(p);
-		getCrushingBuilder("crushed_diamonds").require(Items.DIAMOND).output(ModItems.CRUSHED_DIAMONDS).duration(100).build(p);
-		getPolishingBuilder("lapis_lazuli").require(ModItems.UNREFINED_LAPIS_LAZULI)
+		getCrushingBuilder("crushed_iron").require(Items.IRON_INGOT).output(ModItems.CRUSHED_IRON.get()).duration(100).build(p);
+		getCrushingBuilder("crushed_diamonds").require(Items.DIAMOND).output(ModItems.CRUSHED_DIAMONDS.get()).duration(100).build(p);
+		getPolishingBuilder("lapis_lazuli").require(ModItems.UNREFINED_LAPIS_LAZULI.get())
 				.output(Items.LAPIS_LAZULI).duration(200).output(0.5f, Items.LAPIS_LAZULI).build(p);
-		getPolishingBuilder("polished_rose_quartz").require(AllItems.ROSE_QUARTZ)
-				.output(AllItems.POLISHED_ROSE_QUARTZ).duration(200).output(0.5f, AllItems.POLISHED_ROSE_QUARTZ).build(p);
+		getPolishingBuilder("polished_rose_quartz").require(AllItems.ROSE_QUARTZ.get())
+				.output(AllItems.POLISHED_ROSE_QUARTZ.get()).duration(200).output(0.5f, AllItems.POLISHED_ROSE_QUARTZ.get()).build(p);
 		new SequencedAssemblyRecipeBuilder(CreateSandpaperOverhaul.id("unrefined_lapis_lazuli"))
 				.require(Items.QUARTZ)
 				.transitionTo(ModItems.UNFINISHED_UNREFINED_LAPIS_LAZULI.get())
 				.loops(1)
-				.addOutput(ModItems.UNREFINED_LAPIS_LAZULI, 1)
+				.addOutput(ModItems.UNREFINED_LAPIS_LAZULI.get(), 1)
 				.addStep(FillingRecipe::new, rb -> rb.require(Fluids.LAVA, FluidConstants.fromBucketFraction(1, 4)))
 				.addStep(FillingRecipe::new, rb -> rb.require(Fluids.WATER, FluidConstants.fromBucketFraction(1, 4)))
 				.addStep(DeployerApplicationRecipe::new, rb -> rb.require(Items.BLUE_DYE).toolNotConsumed())
 				.build(p);
 		new SequencedAssemblyRecipeBuilder(CreateSandpaperOverhaul.id("rose_quartz"))
 				.require(Items.QUARTZ)
-				.transitionTo(ModItems.UNFINISHED_ROSE_QUARTZ)
+				.transitionTo(ModItems.UNFINISHED_ROSE_QUARTZ.get())
 				.loops(1)
 				.addOutput(AllItems.ROSE_QUARTZ.get(), 1)
 				.addStep(FillingRecipe::new, rb -> rb.require(Fluids.WATER, FluidConstants.fromBucketFraction(1, 4)))
