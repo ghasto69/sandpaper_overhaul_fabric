@@ -31,7 +31,7 @@ import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
-import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
@@ -211,7 +211,7 @@ public class ModReiCompat implements REIClientPlugin {
 
 			CreateRecipeCategory.Info<T> info = new CreateRecipeCategory.Info<>(
 					CategoryIdentifier.of(CreateSandpaperOverhaul.id(name)),
-					Component.translatable("rei.category.create_so." + name), background, icon, recipesSupplier, catalysts, width, height, displayFactory == null ? (recipe) -> new CreateDisplay<>(recipe, CategoryIdentifier.of(CreateSandpaperOverhaul.id(name))) : displayFactory);
+					new TranslatableComponent("rei.category.create_so." + name), background, icon, recipesSupplier, catalysts, width, height, displayFactory == null ? (recipe) -> new CreateDisplay<>(recipe, CategoryIdentifier.of(CreateSandpaperOverhaul.id(name))) : displayFactory);
 			CreateRecipeCategory<T> category = factory.create(info);
 			allCategories.add(category);
 			return category;

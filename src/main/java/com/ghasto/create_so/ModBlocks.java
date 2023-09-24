@@ -34,7 +34,7 @@ public class ModBlocks {
             REGISTRATE.block("polishing_wheel_controller", PolishingWheelControllerBlock::new)
                     .properties(p -> p.color(MaterialColor.STONE)
                             .noOcclusion()
-                            .noLootTable()
+							.noDrops()
                             .air()
                             .noCollission())
                     .blockstate((c, p) -> p.getVariantBuilder(c.get())
